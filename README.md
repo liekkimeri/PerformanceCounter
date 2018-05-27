@@ -21,4 +21,5 @@ Käännä koodi ja laita webApi päällä
 
 ## WepApi-kutsut:
 api/PerformanceCounter --palauttaa id, koneen nimen, ip , viimeisen cpu-kuoritusarvoin % ,viimeisen vapaan ram-muistin määrän ja viimeisen kovalevy vapaan tilan ja aikaleiman koska viimeinen päivitys on tehty.
+
 PerformanceCounter/{id}  ----palauttaa koneen nimen, ip , viimeisen vuorokauden ajalta cpu-kuoritusarvoin % ,viimeisen vuorokauden ajalta vapaan ram-muistin määrän ja viimeisen vuorokauden ajalta kovalevy vapaan tilan ja aikaleimat. Palauttaa noin 71600 mittausarvoa.
