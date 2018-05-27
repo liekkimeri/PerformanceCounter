@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+ <p>Virtualkoneet</p>
+
+  <table style="width:100%" id="Virtualkoneet">
+ 
+ 
+ 
+ <script>
+	
+	var table = document.getElementById("Virtualkoneet");
+	var row = table.insertRow(0);
+	var requestURL = 'http://localhost:60184/api/PerformanceCounter'
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+var hostname = [];
+var IP = [];
+var cpu = [];
+var ram = [];
+var datetime = [];
+
+
+request.onload = function() {
+	var data = request.response;
+	parsedata(data);
+	
+}
+
+function parsedata(jsonObj) {
+	
+		
+	for (i = 0; i < jsonObj.length; i++) {
+			
+	
+		var row = table.insertRow(0);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		var cell6 = row.insertCell(5);
+		cell1.innerHTML = jsonObj[i].ID;
+		cell2.innerHTML = jsonObj[i].HostName;
+		cell3.innerHTML = jsonObj[i].IP;
+		cell4.innerHTML = jsonObj[i].Performances[0].timeStamp
+		cell5.innerHTML = jsonObj[i].Performances[0].cpu
+		cell6.innerHTML = jsonObj[i].Performances[0].ram
+	}
+	
+	var row = table.insertRow(0);
+	var cell1 = row.insertCell(0);
+	var cell2 = row.insertCell(1);
+	var cell3 = row.insertCell(2);
+	var cell4 = row.insertCell(3);
+	var cell5 = row.insertCell(4);
+	var cell6 = row.insertCell(5);
+	cell1.innerHTML = "ID";
+	cell2.innerHTML = "HostName";
+	cell3.innerHTML = "IP"
+	cell4.innerHTML = "timeStamp";
+	cell5.innerHTML = "cpu%";
+	cell6.innerHTML = "ram";
+					
+}
+    </script>
+</body>
+
+</html>

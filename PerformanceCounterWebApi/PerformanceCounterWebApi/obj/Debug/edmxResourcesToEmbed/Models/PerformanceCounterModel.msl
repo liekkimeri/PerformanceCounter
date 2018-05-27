@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PerformanceCounterModelStoreContainer" CdmEntityContainer="PerformanceCounterEntities">
+    <EntitySetMapping Name="DriveInfoes">
+      <EntityTypeMapping TypeName="PerformanceCounterModel.DriveInfo">
+        <MappingFragment StoreEntitySet="DriveInfo">
+          <ScalarProperty Name="DriveInfo_ID" ColumnName="DriveInfo_ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="TotalFreeSpace" ColumnName="TotalFreeSpace" />
+          <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hosts">
+      <EntityTypeMapping TypeName="PerformanceCounterModel.Host">
+        <MappingFragment StoreEntitySet="Host">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HostName" ColumnName="HostName" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Performances">
+      <EntityTypeMapping TypeName="PerformanceCounterModel.Performance">
+        <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="Perfermance_ID" ColumnName="Perfermance_ID" />
+          <ScalarProperty Name="cpu" ColumnName="cpu" />
+          <ScalarProperty Name="ram" ColumnName="ram" />
+          <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,7 @@
+C:\Users\liekkimeri\OneDrive\PerformanceCounter\PerformanceCounterServer\PerformanceCounterServer\obj\Debug\PerformanceCounterServer.csprojResolveAssemblyReference.cache
+C:\Users\liekkimeri\OneDrive\PerformanceCounter\PerformanceCounterServer\PerformanceCounterServer\obj\Debug\PerformanceCounterServer.csproj.CoreCompileInputs.cache
+C:\Users\liekkimeri\OneDrive\PerformanceCounter\PerformanceCounterServer\PerformanceCounterServer\bin\Debug\PerformanceCounterServer.exe.config
+C:\Users\liekkimeri\OneDrive\PerformanceCounter\PerformanceCounterServer\PerformanceCounterServer\bin\Debug\PerformanceCounterServer.exe
+C:\Users\liekkimeri\OneDrive\PerformanceCounter\PerformanceCounterServer\PerformanceCounterServer\bin\Debug\PerformanceCounterServer.pdb
+C:\Users\liekkimeri\OneDrive\PerformanceCounter\PerformanceCounterServer\PerformanceCounterServer\obj\Debug\PerformanceCounterServer.exe
+C:\Users\liekkimeri\OneDrive\PerformanceCounter\PerformanceCounterServer\PerformanceCounterServer\obj\Debug\PerformanceCounterServer.pdb

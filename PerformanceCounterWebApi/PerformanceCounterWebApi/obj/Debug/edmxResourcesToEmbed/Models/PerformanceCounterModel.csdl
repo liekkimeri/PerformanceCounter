@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PerformanceCounterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DriveInfo">
+    <Key>
+      <PropertyRef Name="DriveInfo_ID" />
+    </Key>
+    <Property Name="DriveInfo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TotalFreeSpace" Type="Int64" Nullable="false" />
+    <Property Name="timeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID" Type="Int32" />
+    <NavigationProperty Name="Host" Relationship="Self.FK__DriveInfo__ID__2F10007B" FromRole="DriveInfo" ToRole="Host" />
+  </EntityType>
+  <EntityType Name="Host">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HostName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DriveInfoes" Relationship="Self.FK__DriveInfo__ID__2F10007B" FromRole="Host" ToRole="DriveInfo" />
+    <NavigationProperty Name="Performances" Relationship="Self.FK__Performance__ID__2B3F6F97" FromRole="Host" ToRole="Performance" />
+  </EntityType>
+  <EntityType Name="Performance">
+    <Key>
+      <PropertyRef Name="Perfermance_ID" />
+    </Key>
+    <Property Name="Perfermance_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cpu" Type="Double" Nullable="false" />
+    <Property Name="ram" Type="Int32" Nullable="false" />
+    <Property Name="timeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID" Type="Int32" />
+    <NavigationProperty Name="Host" Relationship="Self.FK__Performance__ID__2B3F6F97" FromRole="Performance" ToRole="Host" />
+  </EntityType>
+  <Association Name="FK__DriveInfo__ID__2F10007B">
+    <End Role="Host" Type="Self.Host" Multiplicity="0..1" />
+    <End Role="DriveInfo" Type="Self.DriveInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Host">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DriveInfo">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performance__ID__2B3F6F97">
+    <End Role="Host" Type="Self.Host" Multiplicity="0..1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Host">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PerformanceCounterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DriveInfoes" EntityType="Self.DriveInfo" />
+    <EntitySet Name="Hosts" EntityType="Self.Host" />
+    <EntitySet Name="Performances" EntityType="Self.Performance" />
+    <AssociationSet Name="FK__DriveInfo__ID__2F10007B" Association="Self.FK__DriveInfo__ID__2F10007B">
+      <End Role="Host" EntitySet="Hosts" />
+      <End Role="DriveInfo" EntitySet="DriveInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performance__ID__2B3F6F97" Association="Self.FK__Performance__ID__2B3F6F97">
+      <End Role="Host" EntitySet="Hosts" />
+      <End Role="Performance" EntitySet="Performances" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

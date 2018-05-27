@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PerformanceCounterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DriveInfo">
+    <Key>
+      <PropertyRef Name="DriveInfo_ID" />
+    </Key>
+    <Property Name="DriveInfo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TotalFreeSpace" Type="bigint" Nullable="false" />
+    <Property Name="timeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Host">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HostName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IP" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Performance">
+    <Key>
+      <PropertyRef Name="Perfermance_ID" />
+    </Key>
+    <Property Name="Perfermance_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cpu" Type="float" Nullable="false" />
+    <Property Name="ram" Type="int" Nullable="false" />
+    <Property Name="timeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="int" />
+  </EntityType>
+  <Association Name="FK__DriveInfo__ID__2F10007B">
+    <End Role="Host" Type="Self.Host" Multiplicity="0..1" />
+    <End Role="DriveInfo" Type="Self.DriveInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Host">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DriveInfo">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performance__ID__2B3F6F97">
+    <End Role="Host" Type="Self.Host" Multiplicity="0..1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Host">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PerformanceCounterModelStoreContainer">
+    <EntitySet Name="DriveInfo" EntityType="Self.DriveInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Host" EntityType="Self.Host" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Performance" EntityType="Self.Performance" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__DriveInfo__ID__2F10007B" Association="Self.FK__DriveInfo__ID__2F10007B">
+      <End Role="Host" EntitySet="Host" />
+      <End Role="DriveInfo" EntitySet="DriveInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performance__ID__2B3F6F97" Association="Self.FK__Performance__ID__2B3F6F97">
+      <End Role="Host" EntitySet="Host" />
+      <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
