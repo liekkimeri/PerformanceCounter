@@ -14,7 +14,9 @@ Käynnistä Developer Command Prompt for vs ja meni kansinoon, jos sijatsee gene
 Käännä koodi ja laita clienti päällä
 
 PerformanceCounterWebApi:
-Ohjelman on tehty käyttäen asp.net wep api ja entity framework. Käännä koodi ja laita webApi päällä 
+Ohjelman on tehty käyttäen asp.net wep api ja entity framework.  
+Vaihda web.config tiedostossa connectionStrings oleva data suorce vastaamaan sinun tietokanta instanssia
+Käännä koodi ja laita webApi päällä 
 
 WepApi-kutsut:
 api/PerformanceCounter --palauttaa id, koneen nimen, ip , viimeisen cpu-kuoritusarvoin % ,viimeisen vapaan ram-muistin määrän ja viimeisen kovalevy vapaan tilan ja aikaleiman koska viimeinen päivitys on tehty.
