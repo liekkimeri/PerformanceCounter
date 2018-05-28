@@ -8,7 +8,7 @@ CREATE TABLE Host (
     PRIMARY KEY (ID)
 );
 
-CREATE TABLE Perfermance  (
+CREATE TABLE Performance  (
     Perfermance_ID int IDENTITY(1,1) ,
     cpu float NOT NULL,
     ram int NOT NULL,
